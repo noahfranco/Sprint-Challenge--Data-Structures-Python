@@ -29,7 +29,7 @@ class RingBuffer:
         # Note:  This is the only [] allowed
         list_buffer_contents = []
 
-        # TODO: Your code here
+        # TODO: self.sotr
 
         return list_buffer_contents
 
