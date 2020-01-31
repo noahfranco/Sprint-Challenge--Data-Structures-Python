@@ -17,8 +17,7 @@ class RingBuffer:
                 # slef.storage.remove_from_head() # assuming overwritten with the newest element measns remove.
 
 
-        if len(self.storage) == self.capacity:
-            return 
+        if len(self.current) == self.capacity:
             if item < self.capacity:
                 self.storage.add_to_tail(item)
             else:

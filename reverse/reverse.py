@@ -46,13 +46,21 @@ class LinkedList:
     # TO BE COMPLETED
   # pseudocode
     # current = self.head 
-    # do a while loop saying current is not self.prev 
+    # do a while loop saying current is not none 
     # next equal current.next
     # current.next is going to equal none 
     # none equal to current
     # current equal to next 
     # self.head = none
 
-   
-
-    pass
+      current = self.head
+      prev = None
+      
+      while current is not prev:
+        next_node = current.next_node
+        current.next_node = prev
+        # sorting
+        current, next_node = next_node, current
+      self.head = prev
+        
+      
