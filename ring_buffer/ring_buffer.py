@@ -4,7 +4,7 @@ from doubly_linked_list import DoublyLinkedList
 class RingBuffer:
     def __init__(self, capacity):
         self.capacity = capacity
-        self.current = None
+        self.current_node = None
         self.storage = DoublyLinkedList()
 
     def append(self, item):
@@ -17,12 +17,16 @@ class RingBuffer:
                 # slef.storage.remove_from_head() # assuming overwritten with the newest element measns remove.
 
 
-        if len(self.current) == self.capacity:
-            if item < self.capacity:
-                self.storage.add_to_tail(item)
-            else:
-                self.storage.remove_from_head()
-                self.current -= 1
+        #  if storage lengths is equal to the capacity 
+
+        if self.storage.length < self.capacity:
+             self.storage.add_to_tail(item)
+             self.current_node = self.storage.tail
+        if self.storage.length == self.capacity:
+            self.current_node.value = item
+            if self.current_node is self.storage.tail:
+                self.current_node = self.storage.head
+
 
     def get(self):
         # Note:  This is the only [] allowed
