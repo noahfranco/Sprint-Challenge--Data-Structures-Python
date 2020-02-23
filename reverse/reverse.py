@@ -56,11 +56,11 @@ class LinkedList:
       current = self.head
       prev = None
       
-      while current is not prev:
+      while current is not None:
         next_node = current.next_node
         current.next_node = prev
         # sorting
-        current, next_node = next_node, current
+        prev, current = current, next_node
       self.head = prev
         
       
